@@ -1,9 +1,11 @@
 /* eslint-disable */
 <template>
-  <div class="home bg-red-400">
+  <div class="home">
     <h1>Country List</h1>
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-6">
     <div v-for="(destination, index) in destinations" :key="index">
       <CountryItem :country="destination"/>
+    </div>
     </div>
   </div>
 </template>

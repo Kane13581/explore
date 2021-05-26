@@ -1,11 +1,23 @@
 <template>
   <div id="nav">
-    <!--    <router-link to="/">Country List</router-link> |-->
-    <!--    <router-link to="/country-item">Country Item</router-link>-->
+    <div>
+      <TheHeader />
+    </div>
     <router-view></router-view>
   </div>
 </template>
 
+<script>
+import TheHeader from "./components/TheHeader";
+
+export default {
+  name: "App",
+  components: {
+    TheHeader,
+  }
+}
+
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
