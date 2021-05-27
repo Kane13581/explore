@@ -1,7 +1,6 @@
 /* eslint-disable */
 <template>
   <div class="home mt-12">
-<!--    <DeleteModal v-if="showDeleteModal" />-->
     <div class="max-w-xs bg-blue-100 rounded-xl overflow-hidden shadow-lg my-2">
       <img class="w-full" :src="require(`../assets/${country.image}`)" :alt="country.name">
       <div class="px-6 py-4">
@@ -24,27 +23,23 @@
         </button>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import DeleteModal from "../components/DeleteModal";
 
 // import router from "../router";
 
 export default {
   name: "CountryItem",
   components: {
-    // DeleteModal,
   },
   props: {
     country: Object
   },
   data() {
     return {
-      showDeleteModal: false,
     }
   },
   computed: {
@@ -54,11 +49,11 @@ export default {
   },
   methods: {
     toViewDetails() {
-      return this.$router.push({ path: "/country/:id" });
+      return this.$router.push({ path: `/country/${this.country.id}` });
     },
     deleteCountry(index) {
       this.$emit('delete-country', index);
-    }
+      }
   },
 
 };

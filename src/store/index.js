@@ -12,8 +12,8 @@ export default createStore({
       return state.destinations;
     },
     destination: (state) => (id) => {
-      return state.destinations.find((destination) => destination.id === id);
-    },
+      return state.destinations.find((destination) => destination.id.toString() === id.toString());
+      },
   },
   mutations: {},
   actions: {},
