@@ -1,5 +1,6 @@
 <template>
   <div>
+    <GoBack />
     <h1 class="text-3xl mt-12 ">All about {{ country.name }}</h1>
     <div class="grid md:grid-cols-2 mt-12 ">
       <div class="imageStyle grid justify-center xl:justify-self-start ">
@@ -13,9 +14,13 @@
 </template>
 
 <script>
+import GoBack from "./GoBack";
+
 export default {
   name: "CountryDetails",
-  components: {},
+  components: {
+    GoBack
+  },
   props: {},
   data() {
     return {
@@ -35,7 +40,7 @@ export default {
 
     }
   },
-  mounted() {
+  created() {
     this.getCountry();
     /* eslint-disable */
 

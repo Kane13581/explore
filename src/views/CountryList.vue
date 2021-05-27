@@ -1,11 +1,11 @@
 /* eslint-disable */
 <template>
-  <div class="home">
-    <DeleteModal @cancel-delete="cancelDelete" @confirm-delete="confirmDelete" v-if="showDeleteModal"/>
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-6 items-center">
-    <div class="grid justify-center" v-for="(destination, index) in destinations" :key="index">
-      <CountryItem @delete-country="deleteCountry" :country="destination"/>
-    </div>
+  <div class="home p-4 md:p-10">
+    <DeleteModal @cancel-delete="cancelDelete" @confirm-delete="confirmDelete" v-if="showDeleteModal" />
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 gap-12 items-center">
+      <div class="grid justify-center" v-for="(destination, index) in destinations" :key="index">
+        <CountryItem @delete-country="deleteCountry" :country="destination" />
+      </div>
     </div>
   </div>
 </template>
@@ -19,16 +19,14 @@ export default {
   name: "Country List",
   components: {
     CountryItem,
-    DeleteModal,
+    DeleteModal
   },
-  props: {
-
-  },
+  props: {},
   data() {
-    return  {
+    return {
       showDeleteModal: false,
-      baseValue: true,
-    }
+      indexForDelete: '',
+    };
   },
   computed: {
     destinations() {
@@ -37,14 +35,18 @@ export default {
   },
   methods: {
     confirmDelete() {
-      this.baseValue = false;
+      this.destinations.splice(this.indexForDelete, 1);
+      this.indexForDelete = "";
+      this.showDeleteModal = !this.showDeleteModal;
     },
     cancelDelete() {
-      this.baseValue = true;
+      this.showDeleteModal = !this.showDeleteModal;
     },
     deleteCountry(index) {
-        this.destinations.splice(index, 1);
-      }
+      this.showDeleteModal = !this.showDeleteModal;
+      this.indexForDelete = index;
     },
+
+  }
 };
 </script>
