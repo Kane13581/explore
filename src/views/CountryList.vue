@@ -1,10 +1,9 @@
 /* eslint-disable */
 <template>
   <div class="home">
-    <h1>Country List</h1>
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-6">
-    <div v-for="(destination, index) in destinations" :key="index">
-      <CountryItem :country="destination"/>
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-6 items-center">
+    <div class="grid justify-center" v-for="(destination, index) in destinations" :key="index">
+      <CountryItem @delete-country="deleteCountry" :country="destination"/>
     </div>
     </div>
   </div>
@@ -25,6 +24,11 @@ export default {
   computed: {
     destinations() {
       return this.$store.getters.destinations;
+    }
+  },
+  methods: {
+    deleteCountry(index) {
+      this.destinations.splice(index, 1);
     }
   }
 };

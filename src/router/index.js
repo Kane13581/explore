@@ -1,11 +1,17 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import CountryList from "../views/CountryList.vue";
+import CountryDetails from "../components/CountryDetails";
 
 const routes = [
   {
     path: "/",
     name: "CountryList",
     component: CountryList,
+  },
+  {
+    path: "/country/:id",
+    name: "CountryDetails",
+    component: CountryDetails,
   },
   {
     path: "/country-item",
@@ -16,6 +22,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/CountryItem"),
   },
+
 ];
 
 const router = createRouter({
