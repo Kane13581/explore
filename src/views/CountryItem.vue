@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
   <div class="home">
-    <div class="bg-blue-100 rounded-xl overflow-hidden shadow-lg my-2">
+    <div class="bg-white rounded-xl overflow-hidden shadow-lg my-2">
       <img class="w-full" :src="require(`../assets/${country.image}`)" :alt="country.name">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{ country.name }}</div>
@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="w-full flex justify-between px-6 py-4">
-        <button @click="deleteCountry(country)"
+        <button @click="deleteCountry"
           class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
           Delete
         </button>
@@ -25,9 +25,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
-// import router from "../router";
 
 export default {
   name: "CountryItem",
@@ -49,18 +46,16 @@ export default {
     toViewDetails() {
       return this.$router.push({ path: `/country/${this.country.id}` });
     },
-    deleteCountry(country) {
-      this.$emit('delete-country');
-      this.$store.dispatch('deleteCountry', country)
+    deleteCountry() {
+      this.$emit('delete-country', this.indexForDelete);
       },
-    // getCountryIndex() {
-    //   this.indexForDelete = this.$store.getters.destinationIndexById()
-    //   console.log(this.indexForDelete);
-    // }
+    getCountryIndex() {
+      this.indexForDelete = this.$store.getters.destinationIndexById(this.country.id)
+    }
   },
-  // created() {
-  //   this.getCountryIndex();
-  // }
+  created() {
+    this.getCountryIndex();
+  }
 };
 </script>
 
@@ -71,7 +66,4 @@ export default {
   max-height: 7.1rem;
   overflow: hidden;
 }
-
-
-
 </style>

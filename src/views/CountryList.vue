@@ -49,15 +49,16 @@ export default {
   methods: {
     confirmDelete() {
       // this.destinations.splice(this.indexForDelete, 1);
+      this.$store.dispatch('deleteCountry', this.indexForDelete);
       this.indexForDelete = "";
       this.showDeleteModal = !this.showDeleteModal;
     },
     cancelDelete() {
       this.showDeleteModal = !this.showDeleteModal;
     },
-    deleteCountry() {
+    deleteCountry(index) {
       this.showDeleteModal = !this.showDeleteModal;
-      // this.indexForDelete = index;
+      this.indexForDelete = index;
     },
   },
 };

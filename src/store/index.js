@@ -16,7 +16,7 @@ export default createStore({
       return state.destinations.find((destination) => destination.id.toString() === id.toString());
       },
     destinationIndexById: (state) => (id) => {
-      return state.destinations.findIndex((destination) => destination.id == id);
+      return state.destinations.findIndex((destination) => destination.id.toString() === id.toString());
     }
   },
   mutations: {
@@ -24,10 +24,8 @@ export default createStore({
       let index = state.destinations.findIndex((destination) => destination.id.toString() === newCountry.id.toString());
       state.destinations.splice(index, 1, newCountry);
     },
-    delete_country: (state, country) => {
-      let index = state.destinations.findIndex((destination) => destination.id.toString() === country.id.toString());
-      this.state.destinations.splice(index, 1);
-      console.log(country);
+    delete_country: (state, index) => {
+      state.destinations.splice(index, 1);
     },
     add_newCountry: (state, newAddedCountry) => {
       state.destinations.unshift(newAddedCountry);
@@ -37,9 +35,8 @@ export default createStore({
     addNewEditedCountry(context, newCountry) {
       context.commit('add_NewEditedCountry', newCountry)
     },
-    deleteCountry(context, country) {
-      context.commit('delete_country', country)
-      console.log(country);
+    deleteCountry(context, index) {
+      context.commit('delete_country', index)
     },
     addNewCountry(context, newAddedCountry) {
       context.commit('add_newCountry', newAddedCountry)

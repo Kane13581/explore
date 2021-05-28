@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" class="bg-blue-200 min-h-screen">
+  <div id="nav" class="bg-white min-h-screen">
     <div>
       <TheHeader />
     </div>
