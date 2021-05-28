@@ -1,6 +1,6 @@
 <template>
-<span class="go-back flex cursor-pointer sticky top-6 text-white">
-  <button @click="goBack" class="border-0">go back</button>
+<span class="go-back flex cursor-pointer sticky top-0 mt-6 text-white">
+  <button @click="goBack" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-gray-200 text-base font-bold text-gray-600 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">go back</button>
 </span>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: "GoBack",
   methods: {
     goBack() {
-      return this.$router.go(-1);
+      return this.$router.push('/')
     }
   }
 };

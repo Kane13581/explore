@@ -1,13 +1,28 @@
 <template>
   <div>
     <GoBack />
-    <h1 class="text-3xl mt-12 ">All about {{ country.name }}</h1>
-    <div class="grid md:grid-cols-2 mt-12 ">
-      <div class="imageStyle grid justify-center xl:justify-self-start ">
+    <div v-if="!showEditInput">
+      <h1 class="text-3xl mt-12 ">All about {{ country.name }}</h1>
+    </div>
+    <div v-else>
+      <input v-model="newTitle" class="w-64 bg-gray-300 rounded" type="text">
+    </div>
+    <div class="grid md:p-6 md:grid-cols-2 mt-12 ">
+      <div class="imageStyle xl:ml-6 grid justify-center xl:justify-self-start ">
         <img class="xl:h-96" :src="require(`../assets/${country.image}`)" :alt="country.name">
       </div>
-      <div class="descriptionStyle ml-12 grid justify-center text-justify ">
-        {{ country.description }}
+      <div v-if="!showEditInput" class="descriptionStyle md:ml-12 grid justify-center text-justify ">
+        <p class="flex justify-center p-6">{{ country.description }}</p>
+      </div>
+      <div v-else>
+        <textarea class="w-96 bg-gray-300 rounded" v-model="newDescription" type="text"></textarea>
+      </div>
+    </div>
+    <div class="">
+      <button @click="toggleInput"  v-if="!showEditInput" class="text-2xl">Edit Country</button>
+      <div v-else class="flex justify-around">
+        <button @click="saveEditedCountry()" class="w-24 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Save</button>
+        <button @click="cancelEditing" class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Cancel</button>
       </div>
     </div>
   </div>
@@ -26,25 +41,47 @@ export default {
     return {
       countryId: this.$route.params.id,
       country: null,
+      showEditInput: false,
+      newTitle: "",
+      newDescription: ""
     };
   },
-  // computed: {
-  //   countryTwo() {
-  //     return this.$store.getters.destination(this.countryId);
-  //   }
-  // },
   methods: {
     getCountry() {
       this.country = this.$store.getters.destination(this.countryId);
-      /* eslint-disable */
-
+    },
+    toggleInput() {
+      this.showEditInput = !this.showEditInput;
+    },
+    cancelEditing() {
+      this.showEditInput = !this.showEditInput;
+      this.newTitle = "";
+      this.newDescription = "";
+    },
+    saveEditedCountry() {
+      const newCountry = {
+        name: this.newTitle,
+        slug: 'brazil',
+        image: 'brazil.jpg',
+        id: this.countryId,
+        description: this.newDescription,
+        experiences: [{
+          name: 'New Country new Experiences',
+          slug: 'Eden',
+          image: '',
+          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+        }],
+      }
+      this.$store.dispatch('addNewEditedCountry', newCountry);
+      this.showEditInput = !this.showEditInput;
+      console.log(newCountry);
     }
   },
   created() {
     this.getCountry();
     /* eslint-disable */
 
-  },
+  }
 };
 </script>
 

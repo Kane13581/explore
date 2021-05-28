@@ -5,7 +5,7 @@
       <img class="w-full" :src="require(`../assets/${country.image}`)" :alt="country.name">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{ country.name }}</div>
-        <p class="country-description-style text-justify overflow-ellipsis text-grey-darker text-base">
+        <p class="h-32 country-description-style text-justify overflow-ellipsis text-grey-darker text-base">
           {{ country.description }}
         </p>
       </div>
@@ -51,9 +51,16 @@ export default {
     },
     deleteCountry(index) {
       this.$emit('delete-country', index);
-      }
+      console.log(index);
+      },
+    getCountryIndex() {
+      this.indexForDelete = this.$store.getters.destinationIndexById()
+      console.log(this.indexForDelete);
+    }
   },
-
+  created() {
+    this.getCountryIndex();
+  }
 };
 </script>
 

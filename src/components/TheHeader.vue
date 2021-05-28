@@ -1,6 +1,7 @@
 <template>
-  <nav class="bg-gray-800 sticky top-0">
-    <div class="max-w-7xl mx-auto">
+  <nav class="headerStyle bg-gray-800">
+<!--    <div class="max-w-7xl mx-auto">-->
+
       <div class="relative flex items-center justify-between h-16">
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="hidden sm:block sm:ml-6">
@@ -15,8 +16,11 @@
               </a>
             </div>
           </div>
+<!--          <div class="ml-6 bg-gray-900 flex justify-center items-center">-->
+<!--            <input v-model="searchCountry" class="h-8 focus:outline-none rounded bg-gray-300" type="text" placeholder="Search for country">-->
+<!--          </div>-->
         </div>
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <div class=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <button
             class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
             <span class="sr-only">View notifications</span>
@@ -38,13 +42,15 @@
           </div>
         </div>
       </div>
-    </div>
+<!--    </div>-->
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Country
+          List</a>
+        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Favourites
           List</a>
       </div>
     </div>
@@ -53,13 +59,26 @@
 
 <script>
 export default {
-  name: "TheHeader"
+  name: "TheHeader",
+  data() {
+    return {
+    }
+  },
+  computed: {
+  }
 };
 </script>
 
 <style scoped>
 
+.headerStyle {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+
 </style>
+
 
 <!-- Mobile menu button-->
 <!--          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">-->
@@ -97,7 +116,8 @@ export default {
                From: "transform opacity-100 scale-100"
                To: "transform opacity-0 scale-95"
            -->
-<!--            <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">-->
+<!--            <div class="origin-top-right right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">-->
+<!--            <div class="origin-top-right right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">-->
 <!--              &lt;!&ndash; Active: "bg-gray-100", Not Active: "" &ndash;&gt;-->
 <!--              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>-->
 <!--              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>-->
