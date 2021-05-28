@@ -1,7 +1,7 @@
 <template>
   <div>
     <GoBack />
-    <div v-if="!showEditInput">
+    <div v-if="!showEditInput" :class="{favoriteClass: country.isFavourite}">
       <h1 class="text-3xl mt-12 ">All about {{ country.name }}</h1>
     </div>
     <div v-else>
@@ -83,20 +83,25 @@ export default {
       this.$store.dispatch('addNewEditedCountry', newCountry);
       this.showEditInput = !this.showEditInput;
       this.getCountry();
+      console.log(newCountry, this.$store.state.destinations, this.countryId);
     },
     addToFavourites() {
-      // const favouriteCountry = { ...this.destination, isFavourite: true };
-      this.$store.dispatch('addToFavourites', this.countryId);
+      const favouriteCountry = { ...this.country, isFavourite: true };
+      this.$store.dispatch('addToFavourites', favouriteCountry);
+      console.log(favouriteCountry);
+      this.getCountry();
     }
   },
   created() {
     this.getCountry();
-    /* eslint-disable */
-
   }
 };
 </script>
 
 <style scoped>
+
+.favoriteClass {
+  background-color: red;
+}
 
 </style>

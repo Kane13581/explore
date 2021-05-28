@@ -66,4 +66,8 @@ export default {
   max-height: 7.1rem;
   overflow: hidden;
 }
+
+.favoriteClass {
+  background-color: red;
+}
 </style>

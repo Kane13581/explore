@@ -6,7 +6,6 @@ import store from "../countryStore";
 export default createStore({
   state: {
     destinations: store.destinations,
-    countryId: store.destinations.id,
   },
   getters: {
     destinations: (state) => {
@@ -30,11 +29,11 @@ export default createStore({
     add_newCountry: (state, newAddedCountry) => {
       state.destinations.unshift(newAddedCountry);
     },
-    // add_toFavourites: (state, countryId) => {
-    //   let country = state.destinations.findIndex((destination) => destination.id.toString() === countryId.toString())
-    //   state.destinations = [...state.destinations, country]
-    //   console.log(country);
-    // }
+    add_toFavourites: (state, favouriteCountry) => {
+      let index = state.destinations.findIndex((destination) => destination.id.toString() === favouriteCountry.id.toString());
+      state.destinations.splice(index, 1, favouriteCountry)
+      console.log(state.destinations);
+    }
   },
   actions: {
     addNewEditedCountry(context, newCountry) {
@@ -46,9 +45,9 @@ export default createStore({
     addNewCountry(context, newAddedCountry) {
       context.commit('add_newCountry', newAddedCountry)
     },
-    // addToFavourites(context, countryId) {
-    //   context.commit('add_toFavourites', countryId)
-    // }
+    addToFavourites(context, favouriteCountry) {
+      context.commit('add_toFavourites', favouriteCountry)
+    }
   },
   modules: {},
 });
