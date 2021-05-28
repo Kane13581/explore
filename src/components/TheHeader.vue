@@ -1,53 +1,35 @@
 <template>
   <nav class="headerStyle bg-gray-800">
-<!--    <div class="max-w-7xl mx-auto">-->
-
-      <div class="relative flex items-center justify-between h-16">
-        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4">
-              <a href="#" class="bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium"
-                 aria-current="page">
-                <p class="text-gray-300">Country List</p>
-              </a>
-              <a href="#" class="bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium"
-                 aria-current="page">
-                <p class="text-gray-300">Favourites</p>
-              </a>
-            </div>
-          </div>
-<!--          <div class="ml-6 bg-gray-900 flex justify-center items-center">-->
-<!--            <input v-model="searchCountry" class="h-8 focus:outline-none rounded bg-gray-300" type="text" placeholder="Search for country">-->
-<!--          </div>-->
-        </div>
-        <div class=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <button
-            class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-            <span class="sr-only">View notifications</span>
-            <button class="text-gray-300">Add new Country</button>
-          </button>
-
-          <!-- Profile dropdown -->
-          <div class="ml-3 relative">
-            <div>
-              <button type="button"
-                      class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                      id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                <span class="sr-only">Open user menu</span>
-
-              </button>
-            </div>
-
-
+    <div class="relative flex items-center h-16">
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="hidden sm:block sm:ml-6">
+          <div class="flex space-x-4">
+            <button @click="toCountryPage"
+                    class="bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium font-bold text-gray-300">
+              Country List
+            </button>
+            <a href="#" class="bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium"
+               aria-current="page">
+              <p class="text-gray-300">Favourites</p>
+            </a>
           </div>
         </div>
       </div>
-<!--    </div>-->
-
-    <!-- Mobile menu, show/hide based on menu state. -->
+      <div class="flex items-center sm:pr-0">
+        <AddNewCountry />
+        <div class="ml-3 relative">
+          <div>
+            <button type="button"
+                    class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="sm:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Country
           List</a>
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Favourites
@@ -58,13 +40,22 @@
 </template>
 
 <script>
+import AddNewCountry from "./AddNewCountry";
+
 export default {
   name: "TheHeader",
-  data() {
-    return {
-    }
+  components: {
+    AddNewCountry
   },
-  computed: {
+  data() {
+    return {};
+  },
+  computed: {},
+  methods: {
+    toCountryPage() {
+      return this.$router.push("/");
+    }
+
   }
 };
 </script>

@@ -1,9 +1,11 @@
 /* eslint-disable */
 <template>
   <div>
+<!--    <div class="grid grid-cols-2">-->
     <div class="bg-gray-800 h-12 flex items-center">
-      <input v-model="searchCountry" class="h-8 w-full md:w-96 md:ml-12 focus:outline-none rounded bg-gray-300" type="text" placeholder="Search for country">
+      <input v-model="searchCountry" class="ml-2 mr-2 px-3 h-8 w-full md:w-96 md:ml-6 focus:outline-none rounded bg-gray-300" type="text" placeholder="Search for country">
     </div>
+<!--    </div>-->
   <div class="home p-4 md:p-10">
     <DeleteModal @cancel-delete="cancelDelete" @confirm-delete="confirmDelete" v-if="showDeleteModal" />
     <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 gap-12 items-center">
@@ -46,16 +48,16 @@ export default {
   },
   methods: {
     confirmDelete() {
-      this.destinations.splice(this.indexForDelete, 1);
+      // this.destinations.splice(this.indexForDelete, 1);
       this.indexForDelete = "";
       this.showDeleteModal = !this.showDeleteModal;
     },
     cancelDelete() {
       this.showDeleteModal = !this.showDeleteModal;
     },
-    deleteCountry(index) {
+    deleteCountry() {
       this.showDeleteModal = !this.showDeleteModal;
-      this.indexForDelete = index;
+      // this.indexForDelete = index;
     },
   },
 };

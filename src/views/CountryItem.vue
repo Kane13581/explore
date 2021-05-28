@@ -10,7 +10,7 @@
         </p>
       </div>
       <div class="w-full flex justify-between px-6 py-4">
-        <button @click="deleteCountry(index)"
+        <button @click="deleteCountry(country)"
           class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
           Delete
         </button>
@@ -49,18 +49,18 @@ export default {
     toViewDetails() {
       return this.$router.push({ path: `/country/${this.country.id}` });
     },
-    deleteCountry(index) {
-      this.$emit('delete-country', index);
-      console.log(index);
+    deleteCountry(country) {
+      this.$emit('delete-country');
+      this.$store.dispatch('deleteCountry', country)
       },
-    getCountryIndex() {
-      this.indexForDelete = this.$store.getters.destinationIndexById()
-      console.log(this.indexForDelete);
-    }
+    // getCountryIndex() {
+    //   this.indexForDelete = this.$store.getters.destinationIndexById()
+    //   console.log(this.indexForDelete);
+    // }
   },
-  created() {
-    this.getCountryIndex();
-  }
+  // created() {
+  //   this.getCountryIndex();
+  // }
 };
 </script>
 

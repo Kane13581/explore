@@ -5,17 +5,19 @@
       <h1 class="text-3xl mt-12 ">All about {{ country.name }}</h1>
     </div>
     <div v-else>
-      <input v-model="newTitle" class="w-64 bg-gray-300 rounded" type="text">
+      <h1 class="text-2xl">Insert your Country name below:</h1>
+      <input v-model="newTitle" class="w-64 bg-gray-300 rounded" type="text" placeholder="New Country Name">
     </div>
     <div class="grid md:p-6 md:grid-cols-2 mt-12 ">
       <div class="imageStyle xl:ml-6 grid justify-center xl:justify-self-start ">
         <img class="xl:h-96" :src="require(`../assets/${country.image}`)" :alt="country.name">
       </div>
       <div v-if="!showEditInput" class="descriptionStyle md:ml-12 grid justify-center text-justify ">
-        <p class="flex justify-center p-6">{{ country.description }}</p>
+        <p class="flex justify-center pt-0 p-6">{{ country.description }}</p>
       </div>
       <div v-else>
-        <textarea class="w-96 bg-gray-300 rounded" v-model="newDescription" type="text"></textarea>
+        <h1 class="text-2xl">Insert your country description below:</h1>
+        <textarea class="w-96 bg-gray-300 rounded" v-model="newDescription" type="text" placeholder="New Country Description"></textarea>
       </div>
     </div>
     <div class="">
@@ -74,7 +76,7 @@ export default {
       }
       this.$store.dispatch('addNewEditedCountry', newCountry);
       this.showEditInput = !this.showEditInput;
-      console.log(newCountry);
+      this.getCountry();
     }
   },
   created() {
