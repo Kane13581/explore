@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       countryId: this.$route.params.id,
+      destination: this.$store.state.destination,
       country: null,
       showEditInput: false,
       newTitle: "",
@@ -84,7 +85,8 @@ export default {
       this.getCountry();
     },
     addToFavourites() {
-
+      // const favouriteCountry = { ...this.destination, isFavourite: true };
+      this.$store.dispatch('addToFavourites', this.countryId);
     }
   },
   created() {
