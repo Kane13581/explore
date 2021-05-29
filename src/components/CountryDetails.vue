@@ -27,21 +27,26 @@
         <button @click="cancelEditing" class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Cancel</button>
       </div>
     </div>
-    <div>
+    <div v-if="!country.isFavourite">
       <button class="w-44 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" @click="addToFavourites">
       Add to favourites
       </button>
+    </div>
+    <div v-else>
+      <RemoveFavouriteButton @removeFromFavourite="RemoveFromFavourite"/>
     </div>
   </div>
 </template>
 
 <script>
 import GoBack from "./GoBack";
+import RemoveFavouriteButton from "./RemoveFavouriteButton";
 
 export default {
   name: "CountryDetails",
   components: {
-    GoBack
+    GoBack,
+    RemoveFavouriteButton,
   },
   props: {},
   data() {
@@ -60,6 +65,9 @@ export default {
     },
     toggleInput() {
       this.showEditInput = !this.showEditInput;
+      this.newTitle = this.country.name;
+      this.newDescription = this.country.description;
+
     },
     cancelEditing() {
       this.showEditInput = !this.showEditInput;
@@ -90,6 +98,9 @@ export default {
       this.$store.dispatch('addToFavourites', favouriteCountry);
       console.log(favouriteCountry);
       this.getCountry();
+    },
+    RemoveFromFavourite() {
+      this.country.isFavourite = !this.country.isFavourite;
     }
   },
   created() {

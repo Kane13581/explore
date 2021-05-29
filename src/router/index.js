@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import CountryList from "../views/CountryList.vue";
 import CountryDetails from "../components/CountryDetails";
+import FavouriteList from "../components/FavouriteList";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/country/:id",
     name: "CountryDetails",
     component: CountryDetails,
+  },
+  {
+    path: "/favourite-countries",
+    name: "FavouriteList",
+    component: FavouriteList,
   },
   {
     path: "/country-item",

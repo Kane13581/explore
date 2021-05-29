@@ -5,18 +5,17 @@
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <button @click="toCountryPage"
-                    class="bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium font-bold text-gray-300">
+                    class="focus:outline-none bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium font-bold text-gray-300">
               Country List
             </button>
-            <a href="#" class="bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium"
-               aria-current="page">
-              <p class="text-gray-300">Favourites</p>
-            </a>
+            <button @click="toFavouritePage"
+                    class="focus:outline-none bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium font-bold text-gray-300">
+              Favourite Countries
+            </button>
           </div>
         </div>
       </div>
       <div class="flex items-center sm:pr-0">
-        <AddNewCountry />
         <div class="ml-3 relative">
           <div>
             <button type="button"
@@ -40,12 +39,12 @@
 </template>
 
 <script>
-import AddNewCountry from "./AddNewCountry";
+
 
 export default {
   name: "TheHeader",
   components: {
-    AddNewCountry
+
   },
   data() {
     return {};
@@ -54,8 +53,10 @@ export default {
   methods: {
     toCountryPage() {
       return this.$router.push("/");
+    },
+    toFavouritePage() {
+      return this.$router.push("/favourite-countries");
     }
-
   }
 };
 </script>

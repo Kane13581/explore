@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
   <div class="home">
-    <div class="bg-white rounded-xl overflow-hidden shadow-lg my-2">
+    <div :class="{favoriteClass: country.isFavourite}" class="bg-white rounded-xl overflow-hidden shadow-lg my-2">
       <img class="w-full" :src="require(`../assets/${country.image}`)" :alt="country.name">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{ country.name }}</div>
