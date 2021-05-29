@@ -12,6 +12,9 @@
       </div>
       <AddNewCountry />
     </div>
+    <div class="w-full flex justify-start mt-4">
+    <h1 class="text-4xl py-4 px-11">Explore the unknown.</h1>
+    </div>
   <div class="home p-4 md:p-10">
     <DeleteModal v-if="showDeleteModal" @cancel-delete="cancelDelete" @confirm-delete="confirmDelete" />
     <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 gap-12 items-center">
