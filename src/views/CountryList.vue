@@ -1,15 +1,17 @@
 /* eslint-disable */
 <template>
   <div>
-    <div class="bg-gradient-to-r from-green-100 to-blue-200 h-12 flex items-center">
-      <input v-model="searchCountry"
-             class="ml-2 mr-2 px-3 h-8 w-full md:w-96 md:ml-6 focus:outline-none rounded bg-gray-300" type="text"
-             placeholder="Search for country">
-      <div class="w-full flex justify-end">
-        <AddNewCountry />
+    <div class="md:flex">
+      <div class="p-2 w-full md:w-1/2">
+        <div class="flex items-center rounded-full shadow-xl">
+          <input v-model="searchCountry" class="rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" type="text" placeholder="Search">
+          <div class="p-4">
+            <img class="w-7" src="../assets/search.png" alt="search">
+          </div>
+        </div>
+      </div>
+      <AddNewCountry />
     </div>
-  </div>
-
   <div class="home p-4 md:p-10">
     <DeleteModal v-if="showDeleteModal" @cancel-delete="cancelDelete" @confirm-delete="confirmDelete" />
     <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 gap-12 items-center">
@@ -26,12 +28,14 @@ import CountryItem from "./CountryItem";
 import DeleteModal from "../components/DeleteModal";
 import AddNewCountry from "../components/AddNewCountry";
 
+
 export default {
   name: "Country List",
   components: {
     CountryItem,
     DeleteModal,
-    AddNewCountry
+    AddNewCountry,
+
   },
   props: {},
   data() {

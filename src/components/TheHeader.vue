@@ -29,10 +29,14 @@
     </div>
     <div class="sm:hidden" id="mobile-menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Country
-          List</a>
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Favourites
-          List</a>
+        <button @click="toCountryPage"
+                class="focus:outline-none bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium font-bold text-gray-300">
+          Country List
+        </button>
+        <button @click="toFavouritePage"
+                class="focus:outline-none bg-gray-900 text-gray-100 px-3  py-2 rounded-md text-sm font-medium font-bold text-gray-300">
+          Favourite Countries
+        </button>
       </div>
     </div>
   </nav>

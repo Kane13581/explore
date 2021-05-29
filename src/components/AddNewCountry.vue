@@ -1,35 +1,35 @@
 <template>
-  <div class="w-full flex justify-end">
-    <div class="flex" v-if="toggleAddCountry">
+  <div class="w-full flex justify-center md:justify-end">
+    <div class="flex h-12 mt-2" v-if="toggleAddCountry">
       <button
         @click="showAddCountry"
-        class="bg-green-500 text-gray-100 px-3  py-2 rounded-md text-sm mr-2 font-medium font-bold text-gray-300">
+        class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-3  py-2 rounded-md text-sm mr-2 font-medium font-bold text-white">
         Add new country
       </button>
     </div>
-    <div v-else>
+    <div v-else class="w-96">
       <form @submit.prevent="addNewCountry">
-        <div class="flex justify-end">
-          <div class="rounded-none md:rounded md:mt-0">
+        <div class="md:flex md:justify-end mt-2">
+          <div class="flex justify-between sm:flex-row rounded-none md:rounded md:mt-0">
             <button
               @click="cancelAddCountry"
               class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
               Cancel
             </button>
             <button
-              class="w-24 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white ml-2 py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              class="w-24 focus:outline-none bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white ml-2 py-2 px-4 border border-green-500 hover:border-transparent rounded">
               Add
             </button>
           </div>
-          <div>
+          <div class="flex mt-1 md:mt-0 justify-start">
             <input v-model="countryName"
-                   class="focus:outline-none bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold hover:text-white ml-2 py-2 px-4 border border-gray-500 hover:border-transparent rounded"
+                   class="focus:outline-none w-96 bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold hover:text-white md:ml-2 py-2 px-4 border hover:border-transparent rounded"
                    type="text"
                    placeholder="Country Name">
           </div>
-          <div>
+          <div class="w-96 mt-1 md:mt-0">
             <input v-model="countryDescription"
-                   class="focus:outline-none mr-2 bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold hover:text-white ml-2 py-2 px-4 border border-gray-500 hover:border-transparent rounded"
+                   class="focus:outline-none w-96 bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
                    type="text"
                    placeholder="Country Description">
           </div>
