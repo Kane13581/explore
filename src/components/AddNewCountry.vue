@@ -9,7 +9,7 @@
     </div>
     <div v-else class="w-96">
       <form @submit.prevent="addNewCountry">
-        <div class="md:flex md:justify-end mt-2">
+        <div class="2xl:flex 2xl:justify-end mt-2">
           <div class="flex justify-between sm:flex-row rounded-none md:rounded md:mt-0">
             <button
               @click="cancelAddCountry"
@@ -21,13 +21,13 @@
               Add
             </button>
           </div>
-          <div class="flex mt-1 md:mt-0 justify-start">
+          <div class="flex justify-start mt-1 mr-2">
             <input v-model="countryName"
-                   class="focus:outline-none w-96 bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold hover:text-white md:ml-2 py-2 px-4 border hover:border-transparent rounded"
+                   class="focus:outline-none w-96 bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
                    type="text"
                    placeholder="Country Name">
           </div>
-          <div class="w-96 mt-1 md:mt-0">
+          <div class="flex justify-start mt-1 mr-2">
             <input v-model="countryDescription"
                    class="focus:outline-none w-96 bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
                    type="text"
