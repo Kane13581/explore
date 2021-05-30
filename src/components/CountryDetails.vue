@@ -1,17 +1,31 @@
 <template>
   <div>
     <GoBack />
-    <div v-if="!showEditInput" :class="{favoriteClass: country.isFavourite}">
-      <h1 class="text-3xl mt-12 ">All about {{ country.name }}</h1>
+    <div v-if="!showEditInput">
+      <div class="imageStyle grid justify-center xl:justify-self-start">
+       <div class="absolute flex left-3/4 md:left-3/4 lg:left-3/4 xl:left-3/4 2xl:left-3/4">
+         <svg class="w-12 h-12 fill-current" :class="country.isFavourite ? 'text-yellow-500' : 'text-gray-500'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+       </div>
+         <img class="xl:h-96 border-double border-8 border-gray-400" :src="require(`../assets/${country.image}`)" :alt="country.name">
+      </div>
+      <div class="flex justify-center border-l-4 p-4">
+      <h1 class="text-3xl rounded-xl w-1/4 text-4xl font-serif">{{ country.name }}</h1>
+      </div>
     </div>
     <div v-else>
       <h1 class="text-2xl">Insert your Country name below:</h1>
       <input v-model="newTitle" class="w-64 bg-gray-300 rounded" type="text" placeholder="New Country Name">
     </div>
-    <div class="grid md:p-6 md:grid-cols-2 mt-12 ">
-      <div class="imageStyle xl:ml-6 grid justify-center xl:justify-self-start ">
-        <img class="xl:h-96" :src="require(`../assets/${country.image}`)" :alt="country.name">
+    <div class="flex">
+      <div v-if="!showEditInput" class="flex md:w-1/4">
+      <button class="font-bold w-36 ml-4 focus:outline-none bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded" @click="toggleInput">Edit Country</button>
       </div>
+      <div v-else class="absolute w-full bottom-40 flex justify-around">
+        <button @click="saveEditedCountry()" class="w-24 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Save</button>
+        <button @click="cancelEditing" class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Cancel</button>
+      </div>
+    </div>
+    <div class="grid md:p-6 mt-6 ">
       <div v-if="!showEditInput" class="descriptionStyle md:ml-12 grid justify-center text-justify ">
         <p class="flex justify-center pt-0 p-6">{{ country.description }}</p>
       </div>
@@ -20,13 +34,13 @@
         <textarea class="w-96 bg-gray-300 rounded" v-model="newDescription" placeholder="New Country Description"></textarea>
       </div>
     </div>
-    <div class="">
-      <button v-if="!showEditInput" class="text-2xl" @click="toggleInput"  >Edit Country</button>
-      <div v-else class="flex justify-around">
-        <button @click="saveEditedCountry()" class="w-24 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Save</button>
-        <button @click="cancelEditing" class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Cancel</button>
-      </div>
-    </div>
+<!--    <div class="">-->
+<!--      <button v-if="!showEditInput" class="text-2xl" @click="toggleInput"  >Edit Country</button>-->
+<!--      <div v-else class="flex justify-around">-->
+<!--        <button @click="saveEditedCountry()" class="w-24 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Save</button>-->
+<!--        <button @click="cancelEditing" class="w-24 focus:outline-none bg-transparent hover:bg-red-500 text-red-500 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">Cancel</button>-->
+<!--      </div>-->
+<!--    </div>-->
     <div v-if="!country.isFavourite">
       <button class="w-44 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" @click="addToFavourites">
       Add to favourites

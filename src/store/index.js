@@ -16,7 +16,7 @@ export default createStore({
       },
     destinationIndexById: (state) => (id) => {
       return state.destinations.findIndex((destination) => destination.id.toString() === id.toString());
-    }
+    },
   },
   mutations: {
     add_NewEditedCountry: (state, newCountry) => {
