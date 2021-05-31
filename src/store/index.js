@@ -32,7 +32,6 @@ export default createStore({
     add_toFavourites: (state, favouriteCountry) => {
       let index = state.destinations.findIndex((destination) => destination.id.toString() === favouriteCountry.id.toString());
       state.destinations.splice(index, 1, favouriteCountry)
-      console.log(state.destinations);
     }
   },
   actions: {
