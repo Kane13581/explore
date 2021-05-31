@@ -18,9 +18,8 @@
       </div>
     </div>
     <div v-else>
-      <h1 class="text-2xl">Insert your Country name below:</h1>
       <input v-model="newTitle"
-             class="w-64 focus:outline-none h-14 text-2xl text-center bg-yellow-100 rounded-2xl"
+             class="w-64 mt-4 border-double border-8 border-gray-400 focus:outline-none h-14 text-2xl text-center bg-yellow-100 rounded-2xl"
              type="text" placeholder="New Country Name">
     </div>
     <div class="flex">
@@ -30,7 +29,7 @@
           @click="toggleInput">Edit Country
         </button>
       </div>
-      <div v-else class="absolute w-full bottom-2 md:bottom-40 flex justify-around">
+      <div v-else class="absolute w-full bottom-10 flex justify-between md:justify-around">
         <button @click="saveEditedCountry()"
                 class="w-24 focus:outline-none bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
           Save
@@ -41,21 +40,23 @@
         </button>
       </div>
     </div>
-    <div class="grid md:p-6 mt-6 ">
-      <div v-if="!showEditInput" class="descriptionStyle md:ml-12 grid justify-center text-justify ">
+    <div class="flex md:p-6 mt-6 justify-center">
+      <div v-if="!showEditInput"
+           class="descriptionStyle w-4/5 md:w-2/3 border-double border-8 border-gray-400 md:ml-12 grid justify-center text-justify ">
         <p class="flex justify-center pt-0 p-6">{{ country.description }}</p>
       </div>
-      <div v-else>
-        <h1 class="text-2xl">Insert your country description below:</h1>
-        <div class="h-32">
-          <textarea style="overflow: hidden" class="w-96 h-28 focus:outline-none text-center bg-yellow-100 rounded-2xl" v-model="newDescription"
+      <div v-else class="w-full">
+        <div class="h-32 w-full">
+          <textarea style="overflow: hidden"
+                    class="h-32 w-3/4 md:w-3/6 p-2 text-justify border-double border-8 border-gray-400 focus:outline-none text-center bg-yellow-100 rounded-2xl"
+                    v-model="newDescription"
                     placeholder="New Country Description"></textarea>
         </div>
       </div>
     </div>
-    <div v-if="!country.isFavourite">
+    <div v-if="!country.isFavourite" class="w-full flex justify-center items-end h-32">
       <button
-        class="w-44 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        class="w-44 h-11 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
         @click="addToFavourites">
         Add to favourites
       </button>

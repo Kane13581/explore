@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex justify-center md:justify-end">
-    <div class="flex h-12 mt-2" v-if="toggleAddCountry">
+    <div class="flex h-10 mt-2" v-if="toggleAddCountry">
       <button
         @click="showAddCountry"
         class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-3  py-2 rounded-md text-sm mr-2 font-medium font-bold text-white">
