@@ -1,10 +1,9 @@
 <template>
   <div class="home p-4 md:p-10">
-    <DeleteModal v-if="showDeleteModal" @cancel-delete="cancelDelete" @confirm-delete="confirmDelete"/>
     <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 gap-12 items-center">
       <div class="grid justify-center w-96" v-for="(country, index) in favouriteDestinations" :key="index">
         <div class="home">
-          <div :class="{favoriteClass: country.isFavourite}" class="bg-white rounded-xl overflow-hidden shadow-lg my-2">
+          <div :class="{favoriteClass: country.isFavourite}" class="bg-yellow-50 rounded-xl overflow-hidden shadow-lg my-2">
             <img class="w-full" :src="require(`../assets/${country.image}`)" :alt="country.name">
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2">{{ country.name }}</div>
@@ -27,17 +26,17 @@
 </template>
 
 <script>
-import DeleteModal from "./DeleteModal";
+
 
 export default {
   name: "FavouriteList",
   components: {
-    DeleteModal
+
   },
   data() {
     return {
       showDeleteModal: false,
-      indexForDelete: "",
+
     }
   },
   computed: {

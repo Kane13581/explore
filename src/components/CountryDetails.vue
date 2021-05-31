@@ -40,10 +40,10 @@
         </button>
       </div>
     </div>
-    <div class="flex md:p-6 mt-6 justify-center">
+    <div class="flex md:p-6 justify-center">
       <div v-if="!showEditInput"
-           class="descriptionStyle w-4/5 md:w-2/3 border-double border-8 border-gray-400 md:ml-12 grid justify-center text-justify ">
-        <p class="flex justify-center pt-0 p-6">{{ country.description }}</p>
+           class="descriptionStyle w-4/5 md:w-2/5 border-double border-8 border-gray-400 grid justify-center text-justify ">
+        <p class="flex justify-center pt-1 p-3">{{ country.description }}</p>
       </div>
       <div v-else class="w-full">
         <div class="h-32 w-full">
@@ -54,14 +54,14 @@
         </div>
       </div>
     </div>
-    <div v-if="!country.isFavourite" class="w-full flex justify-center items-end h-32">
+    <div v-if="!country.isFavourite" class="w-full flex justify-center items-end h-24">
       <button
         class="w-44 h-11 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
         @click="addToFavourites">
         Add to favourites
       </button>
     </div>
-    <div v-else>
+    <div v-else class="w-full flex justify-center items-end h-24">
       <RemoveFavouriteButton @removeFromFavourite="RemoveFromFavourite" />
     </div>
   </div>
