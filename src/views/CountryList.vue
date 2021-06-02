@@ -17,7 +17,7 @@
       <AddNewCountry />
     </div>
     <div class="w-full flex justify-start mt-4">
-      <h1 class="text-4xl py-4 px-11">Explore the unknown.</h1>
+      <h1 class="text-4xl py-4 px-11">Explore.</h1>
     </div>
     <div class="home p-4 md:p-10">
       <DeleteModal v-if="showDeleteModal" @cancel-delete="cancelDelete" @confirm-delete="confirmDelete" />
