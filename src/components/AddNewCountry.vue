@@ -3,8 +3,8 @@
     <div class="flex h-10 mt-2" v-if="toggleAddCountry">
       <button
         @click="showAddCountry"
-        class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 px-3  py-2 rounded-md text-sm mr-2 font-medium font-bold text-white">
-        Add new country
+        class="w-36 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        Add country
       </button>
     </div>
     <div v-else class="w-96">
@@ -17,7 +17,7 @@
               Cancel
             </button>
             <button
-              class="w-24 focus:outline-none bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white ml-2 py-2 px-4 border border-green-500 hover:border-transparent rounded">
+              class="w-24 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white ml-2 py-2 px-4 border border-blue-500 hover:border-transparent rounded">
               Add
             </button>
           </div>

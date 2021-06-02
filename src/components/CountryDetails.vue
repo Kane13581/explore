@@ -25,7 +25,7 @@
     <div class="flex">
       <div v-if="!showEditInput" class="flex md:w-1/4">
         <button
-          class="font-bold w-36 ml-4 focus:outline-none bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded"
+          class="font-bold w-36 ml-4 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           @click="toggleInput">Edit Country
         </button>
       </div>
