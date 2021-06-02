@@ -3,7 +3,7 @@
   <div class="home">
     <div class="bg-yellow-50 rounded-xl overflow-hidden shadow-lg my-2">
       <div class="relative">
-        <svg :class="country.isFavourite ? 'text-yellow-500' : 'text-gray-500'" class="absolute right-1 mt-2 mr-1 w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        <svg :class="country.isFavourite ? 'text-yellow-500' : 'text-white'" class="absolute right-1 mt-2 mr-1 w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
       </div>
       <img class="w-full" :src="require(`../assets/${country.image}`)" :alt="country.name">
       <div class="px-6 py-4">

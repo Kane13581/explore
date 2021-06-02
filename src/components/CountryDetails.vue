@@ -2,19 +2,15 @@
   <div>
     <GoBack />
     <div class="imageStyle grid justify-center xl:justify-self-start">
+      <div class="relative">
+        <svg :class="country.isFavourite ? 'text-yellow-500' : 'text-white'" class="absolute right-1 mt-2 mr-1 w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+      </div>
       <img class="xl:h-96 border-double border-8 border-gray-400" :src="require(`../assets/${country.image}`)"
            :alt="country.name">
     </div>
     <div v-if="!showEditInput">
       <div class="flex justify-center p-4">
         <h1 class="text-3xl rounded-xl w-1/5 text-4xl font-serif">{{ country.name }}</h1>
-        <div class="absolute right-8 xl:relative">
-          <svg class="w-12 h-12 fill-current" :class="country.isFavourite ? 'text-yellow-500' : 'text-gray-500'"
-               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-            <path
-              d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-          </svg>
-        </div>
       </div>
     </div>
     <div v-else>

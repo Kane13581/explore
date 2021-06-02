@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" class="bg-gradient-to-r from-green-100 to-blue-200 min-h-screen">
+  <div id="nav" class="bg-green-50 min-h-screen">
     <div>
       <TheHeader />
     </div>
@@ -46,3 +46,6 @@ html {
   color: #42b983;
 }
 </style>
+
+
+<!--bg-gradient-to-r from-green-100 to-blue-200-->
