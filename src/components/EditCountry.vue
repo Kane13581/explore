@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-if="!showEditInput" class="flex md:w-1/4">
-      <button
-          class="font-bold w-36 ml-4 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          @click="toggleInput">Edit Country
-      </button>
-    </div>
-    <div v-else>
+<!--    <div v-if="!showEditInput" class="flex md:w-1/4">-->
+<!--      <button-->
+<!--          class="font-bold w-36 ml-4 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"-->
+<!--          @click="toggleInput">Edit Country-->
+<!--      </button>-->
+<!--    </div>-->
+<!--    <div v-else>-->
       <div class="flex">
         <div>
           <input v-model="newTitle"
@@ -21,12 +21,12 @@
                     placeholder="New Country Description"></textarea>
           </div>
         </div>
-        <div class="flex md:w-1/4">
-          <button
-              class="font-bold w-36 ml-4 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-              @click="toggleInput">Edit Country
-          </button>
-        </div>
+<!--        <div class="flex md:w-1/4">-->
+<!--          <button-->
+<!--              class="font-bold w-36 ml-4 focus:outline-none bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"-->
+<!--              @click="toggleInput">Edit Country-->
+<!--          </button>-->
+<!--        </div>-->
         <div class="absolute w-full bottom-10 flex justify-between md:justify-around">
           <button @click="sendCountryInfo"
                   class="w-24 focus:outline-none bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-  </div>
+<!--  </div>-->
 </template>
 
 <script>
@@ -57,11 +57,11 @@ export default {
     }
   },
   methods: {
-    toggleInput() {
-      this.showEditInput = !this.showEditInput;
-      this.newTitle = this.country.name;
-      this.newDescription = this.country.description;
-    },
+    // toggleInput() {
+    //   this.showEditInput = !this.showEditInput;
+    //   this.newTitle = this.country.name;
+    //   this.newDescription = this.country.description;
+    // },
     cancelEditing() {
       this.showEditInput = !this.showEditInput;
       this.newTitle = "";
